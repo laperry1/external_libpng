@@ -1854,12 +1854,12 @@ png_colorspace_set_sRGB(png_const_structrp png_ptr, png_colorspacerp colorspace,
 
    /* If the standard sRGB cHRM chunk does not match the one from the PNG file
     * warn but overwrite the value with the correct one.
-    */
+    
    if ((colorspace->flags & PNG_COLORSPACE_HAVE_ENDPOINTS) != 0 &&
       !png_colorspace_endpoints_match(&sRGB_xy, &colorspace->end_points_xy,
          100))
       png_chunk_report(png_ptr, "cHRM chunk does not match sRGB",
-         PNG_CHUNK_ERROR);
+         PNG_CHUNK_ERROR); */
 
    /* This check is just done for the error reporting - the routine always
     * returns true when the 'from' argument corresponds to sRGB (2).
@@ -2275,9 +2275,8 @@ png_compare_ICC_profile_with_sRGB(png_const_structrp png_ptr,
                       * problems if they are used, therefore attempt to
                       * discourage their use, skip the 'have_md5' warning below,
                       * which is made irrelevant by this error.
-                      */
                      png_chunk_report(png_ptr, "known incorrect sRGB profile",
-                        PNG_CHUNK_ERROR);
+                        PNG_CHUNK_ERROR); */
                   }
 
                   /* Warn that this being done; this isn't even an error since
@@ -2300,11 +2299,10 @@ png_compare_ICC_profile_with_sRGB(png_const_structrp png_ptr,
          /* The signature matched, but the profile had been changed in some
           * way.  This probably indicates a data error or uninformed hacking.
           * Fall through to "no match".
-          */
          png_chunk_report(png_ptr,
-             "Not recognizing known sRGB profile that has been edited", 
+             "Not recognizing known sRGB profile that has been edited",
              PNG_CHUNK_WARNING);
-         break;
+         break; */
 # endif
       }
    }
